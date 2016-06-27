@@ -1,16 +1,17 @@
 
 ## Introduction
 
-This is a repository of malicious PulseAudio clients. Check
-[this PulseAudio Access Control document](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/Developer/AccessControl/)
-for further details.
+This is a repository of malicious PulseAudio clients. Check the
+[PulseAudio Access Control](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/Developer/AccessControl/)
+document for further details.
 
 ### Applications
 
-- exhaust-open-streams: Exhaust default sink number of open streams, effectively
-  disabling all other new apps from outputting audio and force-muting the system.
+- `exhaust-open-streams`: Exhaust server's default sink max number of connected
+  streams, effectively disabling all other new apps from outputting any audio and
+  force-muting the system.
 
-- kill-server-quickly-open-write-streams: Kill the PA server by opening and
-  writing to multiple connected streams in parallel. This forces multiple rewinds
-  in the server, leading it to exceed its real-time budget and getting killed by
-  the kernel.
+- `kill-server-quickly-open-write-streams`: Force the server daemon to be killed.
+  Quickly open, and write to, multiple connected streams in parallel. This will
+  result in excessive rewinding, leading the server to exceed its 200ms real-time
+  budged, and thus getting a SIGKILL from the kernel.
