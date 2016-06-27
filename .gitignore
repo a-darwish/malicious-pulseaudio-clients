@@ -1,0 +1,9 @@
+
+# Binaries
+*.o
+exhaust-open-streams
+kill-server-quickly-open-write-streams
+
+# Eclipse project meta-data
+.cproject
+.project
